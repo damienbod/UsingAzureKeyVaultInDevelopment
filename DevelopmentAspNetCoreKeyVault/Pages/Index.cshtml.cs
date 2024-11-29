@@ -19,7 +19,7 @@ public class IndexModel(IConfiguration configuration, IHostEnvironment hostEnvir
     {
         // Azure SDK direct
         var client = new SecretClient(new Uri(_configuration["AzureKeyVaultEndpoint"]!),
-            AppAccessCredentials.GetChainedTokenCredentials(_configuration, 
+            AppAccessCredentials.GetChainedTokenCredentials(_configuration,
                 _hostEnvironment.IsDevelopment()));
 
         var secret = await client.GetSecretAsync("demosecret");
@@ -31,6 +31,6 @@ public class IndexModel(IConfiguration configuration, IHostEnvironment hostEnvir
         // From from key vault using ASP.NET Core configuration integration
         DemoSecretConfig = _configuration["demosecret"];
 
-        
+
     }
 }
