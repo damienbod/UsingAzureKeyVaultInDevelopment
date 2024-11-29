@@ -2,6 +2,8 @@
 
 ## Links
 
+https://learn.microsoft.com/en-us/aspnet/core/security/key-vault-configuration
+
 https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide
 
 https://damienbod.com/2020/09/10/securing-azure-functions-using-an-azure-virtual-network/
