@@ -2,30 +2,20 @@
 
 namespace DevelopmentAspNetCoreKeyVault;
 
-public class KeyVaultCredentialsClient
+public static class AppAccessCredentials
 {
-
-    private readonly IConfiguration _configuration;
-    private readonly IHostEnvironment _environment;
-
-    public KeyVaultCredentialsClient(IConfiguration configuration, IHostEnvironment environment)
+    public static ChainedTokenCredential GetChainedTokenCredentials(IConfiguration configuration, bool isDevelopment)
     {
-        _configuration = configuration;
-        _environment = environment;
-    }
-
-    public ChainedTokenCredential GetChainedTokenCredentials()
-    {
-        if (!_environment.IsDevelopment())
+        if (!isDevelopment)
         {
             // Use a system assigned managed identity on production deployments
             return new ChainedTokenCredential(new ManagedIdentityCredential());
         }
         else // dev env
         {
-            var tenantId = _configuration["EntraId:TenantId"];
-            var clientId = _configuration.GetValue<string>("EntraId:ClientId");
-            var clientSecret = _configuration.GetValue<string>("EntraId:ClientSecret");
+            var tenantId = configuration["EntraId:TenantId"];
+            var clientId = configuration.GetValue<string>("EntraId:ClientId");
+            var clientSecret = configuration.GetValue<string>("EntraId:ClientSecret");
 
             var options = new TokenCredentialOptions
             {

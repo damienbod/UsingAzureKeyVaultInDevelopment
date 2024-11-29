@@ -1,3 +1,6 @@
+using Azure.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 namespace DevelopmentAspNetCoreKeyVault;
 
@@ -7,8 +10,12 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddSingleton<KeyVaultCredentialsClient>();
         builder.Services.AddRazorPages();
+
+        builder.Configuration.AddAzureKeyVault(
+            new Uri($"{builder.Configuration["AzureKeyVaultEndpoint"]}"),
+            AppAccessCredentials.GetChainedTokenCredentials(builder.Configuration,
+                builder.Environment.IsDevelopment()));
 
         var app = builder.Build();
 
