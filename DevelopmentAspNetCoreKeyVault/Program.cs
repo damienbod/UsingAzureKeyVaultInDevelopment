@@ -11,9 +11,6 @@ public class Program
 
         builder.Services.AddRazorPages();
 
-        var client = new SecretClient(new Uri(builder.Configuration["AzureKeyVaultEndpoint"]!), 
-            new DefaultAzureCredential());
-
         var app = builder.Build();
 
         if (!app.Environment.IsDevelopment())
@@ -25,7 +22,6 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseRouting();
-
         app.UseAuthorization();
 
         app.MapStaticAssets();
