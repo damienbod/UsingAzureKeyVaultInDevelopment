@@ -1,5 +1,3 @@
-using Azure.Identity;
-using Azure.Security.KeyVault.Secrets;
 
 namespace DevelopmentAspNetCoreKeyVault;
 
@@ -9,6 +7,7 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Services.AddSingleton<KeyVaultCredentialsClient>();
         builder.Services.AddRazorPages();
 
         var app = builder.Build();
