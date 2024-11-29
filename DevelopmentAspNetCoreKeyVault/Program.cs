@@ -8,11 +8,15 @@ public class Program
 
         builder.Services.AddRazorPages();
 
-        builder.Configuration.AddAzureKeyVault(
+        var keyVault = builder.Configuration["AzureKeyVaultEndpoint"];
+        if(!string.IsNullOrEmpty(keyVault))
+        {
+            builder.Configuration.AddAzureKeyVault(
             new Uri($"{builder.Configuration["AzureKeyVaultEndpoint"]}"),
             AppAccessCredentials.GetChainedTokenCredentials(builder.Configuration,
                 builder.Environment.IsDevelopment()));
-
+        }
+        
         var app = builder.Build();
 
         if (!app.Environment.IsDevelopment())
