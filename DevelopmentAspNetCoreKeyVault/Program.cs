@@ -1,7 +1,3 @@
-using Azure.Identity;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-
 namespace DevelopmentAspNetCoreKeyVault;
 
 public class Program
