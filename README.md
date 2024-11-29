@@ -1,5 +1,10 @@
 # Using Azure Key Vault in development
 
+Ensure the app registristration is assigned one of the following roles to have full access:
+
+- Key Vault Secrets Officer
+- Key Vault Administrator 
+
 ## Links
 
 https://learn.microsoft.com/en-us/aspnet/core/security/key-vault-configuration

@@ -18,6 +18,7 @@ public class KeyVaultCredentialsClient
     {
         if (!_environment.IsDevelopment())
         {
+            // Use a system assigned managed identity on production deployments
             return new ChainedTokenCredential(new ManagedIdentityCredential());
         }
         else // dev env
