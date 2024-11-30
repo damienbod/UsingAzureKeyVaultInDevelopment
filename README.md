@@ -1,4 +1,6 @@
-# Using Azure Key Vault in development
+# Using Azure Key Vault with ASP.NET Core in development
+
+[Using ASP.NET Core with Azure Key Vault](https://damienbod.com)
 
 Ensure the app registristration is assigned one of the following roles to have full access:
 
