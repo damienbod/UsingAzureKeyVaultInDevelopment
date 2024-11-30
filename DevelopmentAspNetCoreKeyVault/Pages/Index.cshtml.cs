@@ -29,6 +29,7 @@ public class IndexModel(IConfiguration configuration, IHostEnvironment hostEnvir
 
         // ASP.NET Core configuration
         // From from key vault using ASP.NET Core configuration integration
+        // Or from user secrets if offline, or fast startup is required
         DemoSecretConfig = _configuration["demosecret"];
 
 
