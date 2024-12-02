@@ -1,4 +1,4 @@
-# Using Azure Key Vault with ASP.NET Core in development
+# Using ASP.NET Core with Azure Key Vault
 
 [![.NET](https://github.com/damienbod/UsingAzureKeyVaultInDevelopment/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/UsingAzureKeyVaultInDevelopment/actions/workflows/dotnet.yml)
 
