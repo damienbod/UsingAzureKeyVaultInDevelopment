@@ -1,5 +1,7 @@
 # Using Azure Key Vault with ASP.NET Core in development
 
+[![.NET](https://github.com/damienbod/UsingAzureKeyVaultInDevelopment/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/UsingAzureKeyVaultInDevelopment/actions/workflows/dotnet.yml)
+
 [Using ASP.NET Core with Azure Key Vault](https://damienbod.com/2024/12/02/using-asp-net-core-with-azure-key-vault/)
 
 Ensure the app registristration is assigned one of the following roles to have full access:
