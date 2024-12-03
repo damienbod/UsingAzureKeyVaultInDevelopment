@@ -13,9 +13,9 @@ public static class AppAccessCredentials
         }
         else // dev env
         {
-            var tenantId = configuration["EntraId:TenantId"];
-            var clientId = configuration.GetValue<string>("EntraId:ClientId");
-            var clientSecret = configuration.GetValue<string>("EntraId:ClientSecret");
+            var tenantId = configuration.GetValue<string>("EntraId:TenantId", string.Empty);
+            var clientId = configuration.GetValue<string>("EntraId:ClientId", string.Empty);
+            var clientSecret = configuration.GetValue<string>("EntraId:ClientSecret", string.Empty);
 
             var options = new TokenCredentialOptions
             {
@@ -26,7 +26,7 @@ public static class AppAccessCredentials
             var devClientSecretCredential = new ClientSecretCredential(
                 tenantId, clientId, clientSecret, options);
 
-            var chainedTokenCredential = new ChainedTokenCredential(devClientSecretCredential);
+            var chainedTokenCredential = new ChainedTokenCredential(devClientSecretCredential, new ManagedIdentityCredential());
 
             return chainedTokenCredential;
         }
