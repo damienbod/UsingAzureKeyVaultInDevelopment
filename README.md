@@ -30,3 +30,5 @@ https://cmatskas.com/securing-asp-net-core-application-settings-using-azure-key-
 https://github.com/jayendranarumugam/DemoSecrets/tree/master/DemoSecrets
 
 https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest
+
+https://github.com/Azure/azure-sdk-for-go/wiki/Set-up-Your-Environment-for-Authentication#configure-defaultazurecredential
