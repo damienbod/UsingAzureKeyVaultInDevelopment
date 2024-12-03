@@ -22,11 +22,16 @@ public static class AppAccessCredentials
                 AuthorityHost = AzureAuthorityHosts.AzurePublicCloud
             };
 
+            if (string.IsNullOrEmpty(tenantId)) // DevOps
+            {
+                return new ChainedTokenCredential(new ManagedIdentityCredential());
+            }
+
             // https://docs.microsoft.com/dotnet/api/azure.identity.clientsecretcredential
             var devClientSecretCredential = new ClientSecretCredential(
                 tenantId, clientId, clientSecret, options);
 
-            var chainedTokenCredential = new ChainedTokenCredential(devClientSecretCredential, new ManagedIdentityCredential());
+            var chainedTokenCredential = new ChainedTokenCredential(devClientSecretCredential);
 
             return chainedTokenCredential;
         }
