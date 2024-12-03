@@ -24,7 +24,8 @@ public static class AppAccessCredentials
 
             if (string.IsNullOrEmpty(tenantId)) // DevOps
             {
-                return new ChainedTokenCredential(new ManagedIdentityCredential());
+                // Use DefaultAzureCredential if AzureCliCredential is not used in your DevOps
+                return new ChainedTokenCredential(new AzureCliCredential());
             }
 
             // https://docs.microsoft.com/dotnet/api/azure.identity.clientsecretcredential

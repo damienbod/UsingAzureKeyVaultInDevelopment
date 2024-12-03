@@ -7,7 +7,9 @@
 Ensure the app registristration is assigned one of the following roles to have full access:
 
 - Key Vault Secrets Officer
-- Key Vault Administrator 
+- Key Vault Administrator
+- Key Vault Secrets User
+- Key Vault Certificates User
 
 ## Links
 
